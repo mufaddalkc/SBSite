@@ -11,18 +11,18 @@ const LeftPanel = () => {
         background:
           "linear-gradient(141.7deg, rgba(60, 40, 125, 0.96) 30.44%, #CD2D98 100%)",
         display: "flex",
-        alignItems: "center",
+        alignItems: "flex-end",
         justifyContent: "center",
         color: "white",
         padding: "2rem",
+        height: "100vh",
       }}
     >
       <Box
         sx={{
           width: 651,
-          height: 205,
+          height: 70,
           textAlign: "left",
-          marginTop: "auto",
           marginBottom: "20px",
         }}
       >

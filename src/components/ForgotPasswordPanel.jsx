@@ -35,11 +35,10 @@ const ForgotPasswordPanel = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#f5f5f5",
         padding: "2rem",
         borderRadius: "8px",
-        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-        height: "100%",
+        height: 515,
+        width: 380,
       }}
     >
       <Box sx={{ width: 400, maxWidth: "100%" }}>
