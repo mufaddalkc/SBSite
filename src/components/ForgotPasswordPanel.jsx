@@ -1,19 +1,17 @@
-// src/components/RightPanel.js
 import React from "react";
-import { Grid, Box, Typography, Button } from "@mui/material";
+import { Grid, Box, Typography, Button, Link as MuiLink } from "@mui/material";
+import { Link } from "react-router-dom";
 import EmailInput from "./EmailInput";
-import AlertMessage from "./AlertMessage";
 import Logo from "./Logo";
+import theme from "../theme";
 
-const RightPanel = ({
+const ForgotPasswordPanel = ({
   email,
-  setEmail,
+  handleEmailChange,
   handleSendLink,
   buttonDisabled,
   alert,
-  handleEmailChange,
   handleKeyPress,
-  theme,
 }) => {
   return (
     <Grid
@@ -34,10 +32,11 @@ const RightPanel = ({
       <Box sx={{ width: 400, maxWidth: "100%" }}>
         <Logo />
         <Typography variant="subtitle1" gutterBottom>
-          Email
+          Forgot Password
         </Typography>
+
         <EmailInput
-          email={email}
+          value={email}
           onChange={handleEmailChange}
           onKeyPress={handleKeyPress}
         />
@@ -52,7 +51,7 @@ const RightPanel = ({
           sx={{
             mt: 2,
             py: 1.5,
-            backgroundColor: theme.palette.primary.main, // Use the passed theme
+            backgroundColor: theme.palette.primary.main,
             "&:hover": {
               backgroundColor: theme.palette.primary.dark,
             },
@@ -63,18 +62,14 @@ const RightPanel = ({
           Send Link
         </Button>
 
-        <AlertMessage
-          show={alert.show}
-          error={alert.error}
-          message={
-            alert.error
-              ? "Invalid email address. Please try again."
-              : "Link sent successfully! Check your email."
-          }
-        />
+        <Typography variant="body2" sx={{ mt: 2, textAlign: "center" }}>
+          <MuiLink component={Link} to="/">
+            Back to Login
+          </MuiLink>
+        </Typography>
       </Box>
     </Grid>
   );
 };
 
-export default RightPanel;
+export default ForgotPasswordPanel;

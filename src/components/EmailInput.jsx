@@ -2,15 +2,16 @@ import React from "react";
 import { TextField } from "@mui/material";
 import theme from "../theme";
 
-const EmailInput = ({ email, onChange, onKeyPress }) => {
+const EmailInput = ({ value, onChange, onKeyPress, label, type = "text" }) => {
   return (
     <TextField
-      label="Enter your email"
+      label={label} // Pass the label prop
       fullWidth
       margin="normal"
-      value={email}
+      value={value} // Use value instead of email
       onChange={onChange}
       onKeyPress={onKeyPress}
+      type={type} // Pass the type prop, defaults to "text"
       sx={{
         "& .MuiInputBase-input": {
           borderBottom: `2px solid ${theme.palette.primary.main}`,
