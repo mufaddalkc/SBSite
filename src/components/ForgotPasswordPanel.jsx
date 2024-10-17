@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, Box, Typography, Button, Link as MuiLink } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import EmailInput from "./EmailInput";
 import Logo from "./Logo";
 import theme from "../theme";
 
-const ForgotPasswordPanel = ({
-  email,
-  handleEmailChange,
-  handleSendLink,
-  buttonDisabled,
-  alert,
-  handleKeyPress,
-}) => {
+const ForgotPasswordPanel = () => {
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
+
+  const handleSendLinkClick = () => {
+    if (!validateEmail(email)) {
+      navigate("/not-found");
+    } else {
+      console.log("Send reset link to:", email);
+    }
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
   return (
     <Grid
       item
@@ -31,18 +44,14 @@ const ForgotPasswordPanel = ({
     >
       <Box sx={{ width: 400, maxWidth: "100%" }}>
         <Logo />
-        <Typography variant="subtitle1" gutterBottom>
-          Forgot Password
-        </Typography>
 
         <EmailInput
           value={email}
           onChange={handleEmailChange}
-          onKeyPress={handleKeyPress}
+          label="Enter your email"
         />
         <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
-          An email will be sent to your registered email address to change your
-          password.
+          Enter your email address to reset your password.
         </Typography>
 
         <Button
@@ -56,8 +65,7 @@ const ForgotPasswordPanel = ({
               backgroundColor: theme.palette.primary.dark,
             },
           }}
-          onClick={handleSendLink}
-          disabled={buttonDisabled}
+          onClick={handleSendLinkClick}
         >
           Send Link
         </Button>

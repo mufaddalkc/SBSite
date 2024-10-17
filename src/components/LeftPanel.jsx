@@ -1,4 +1,3 @@
-// src/components/LeftPanel.js
 import React from "react";
 import { Grid, Box, Typography } from "@mui/material";
 
@@ -19,12 +18,18 @@ const LeftPanel = () => {
       }}
     >
       <Box
-        sx={{ textAlign: "center", marginTop: "auto", marginBottom: "20px" }}
+        sx={{
+          width: 651,
+          height: 205,
+          textAlign: "left",
+          marginTop: "auto",
+          marginBottom: "20px",
+        }}
       >
         <Typography variant="h4" component="h1">
           Empowering Startups
         </Typography>
-        <Typography variant="subtitle1">
+        <Typography variant="subtitle2" sx={{ fontSize: 16, fontWeight: 300 }}>
           We partner with non-technical founders and SMEs to grow ideas into
           products and businesses.
         </Typography>

@@ -1,4 +1,3 @@
-// src/components/Logo.js
 import React from "react";
 import logo from "../assets/images/logo.png";
 import { Typography } from "@mui/material";

@@ -9,9 +9,7 @@ const LoginPanel = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
-    // Handle login logic
-  };
+  const handleLogin = () => {};
 
   return (
     <Grid
@@ -31,9 +29,6 @@ const LoginPanel = () => {
     >
       <Box sx={{ width: 400, maxWidth: "100%" }}>
         <Logo />
-        <Typography variant="subtitle1" gutterBottom>
-          Login
-        </Typography>
 
         <EmailInput
           value={email}
